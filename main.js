@@ -43,11 +43,12 @@ function whoWins(a, b) {
 
 function playAgain() {
     let answer = prompt("Restart? y/n ");
-    if (answer == "y") {
+    if (answer.startsWith("y")) {
     return true;
-    }
+    } else if (answer.startsWith('n')) {
     body.append("You pussy bro!");
     return false;
+    } 
 }
 //game logic
 function theGame() {
@@ -76,7 +77,8 @@ while (true) {
     
     theGame();
     if (playAgain()) {
-        theGame();
+        continue;
+        
     } else {
         break;
     }
