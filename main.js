@@ -1,5 +1,4 @@
-console.log("Hi bitches!");
-console.log("Welcome to the game!");
+
 const options = ["rock", "paper", "scissors"];
 const body = document.body;
 
@@ -51,21 +50,34 @@ function playAgain() {
     return false;
 }
 //game logic
-let playWins = 0;
-let computerWins = 0;
-let draw = 0;
-for(let i = 1; i <= 5; i++) {
+function theGame() {
+    console.log("\nHi bitches!");
+    console.log("Welcome to the game!\n");
+    let playWins = 0;
+    let computerWins = 0;
+    let draw = 0;
+    for(let i = 1; i <= 5; i++) {
+        
+        let a = playerOption();
+        let b = computerOption();
+        if (whoWins(a,b) == 'player') {
+            playWins += 1;
+            
+        } else if (whoWins(a,b) == 'computer') {
+            computerWins += 1;
+            
+        } else {
+            draw += 1;
+        }
+        console.log(`The score is: Player ${playWins}, Computer ${computerWins}, Draws ${draw}`);
+ }
+}
+while (true) {
     
-    let a = playerOption();
-    let b = computerOption();
-    if (whoWins(a,b) == 'player') {
-        playWins += 1;
-        
-    } else if (whoWins(a,b) == 'computer') {
-        computerWins += 1;
-        
+    theGame();
+    if (playAgain()) {
+        theGame();
     } else {
-        draw += 1;
+        break;
     }
-    console.log(`The score is: Player ${playWins}, Computer ${computerWins}, Draws ${draw}`);
 }
