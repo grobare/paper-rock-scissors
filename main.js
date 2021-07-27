@@ -14,7 +14,7 @@ function computerOption() {
 function playerOption() {
     let player;
     while (!options.includes(player)) {
-    player = prompt("Choose your option?/paper,rock/scissors/ ");
+    player = (prompt("Choose your option?/paper,rock/scissors/ ")).toLowerCase();
     }
     return player;
 }
@@ -22,6 +22,7 @@ function playerOption() {
 //Winner check
 
 function whoWins(a, b) {
+    
     if (a == b) {
     console.log("It's draw.");
     } else if (a == "rock" && b == "scissors") {
