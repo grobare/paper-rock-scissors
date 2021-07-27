@@ -50,7 +50,7 @@ function playAgain() {
     return false;
     } 
 }
-//game logic
+//game 
 function theGame() {
     console.log("\nHi bitches!");
     console.log("Welcome to the game!\n");
@@ -73,6 +73,7 @@ function theGame() {
         console.log(`The score is: Player ${playWins}, Computer ${computerWins}, Draws ${draw}`);
  }
 }
+//game logic
 while (true) {
     
     theGame();
