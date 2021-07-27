@@ -24,16 +24,21 @@ function playerOption() {
 function whoWins(a, b) {
     
     if (a == b) {
-    console.log("It's draw.");
-    } else if (a == "rock" && b == "scissors") {
-    console.log("Player wins!");
-    } else if (a == "paper" && b == "rock") {
-    console.log("Player wins!");
-    } else if (a == "scissors" && b == "paper") {
-    console.log("Player wins!");
-    } else {
-    console.log("Computer wins!");
-    }
+        console.log("It's draw.");
+        return 'draw'
+        } else if (a == "rock" && b == "scissors") {
+        console.log("Player wins!");
+        return 'player';
+        } else if (a == "paper" && b == "rock") {
+        console.log("Player wins!");
+        return 'player';
+        } else if (a == "scissors" && b == "paper") {
+        console.log("Player wins!");
+        return 'player';
+        } else {
+        console.log("Computer wins!");
+        return 'computer';
+        }
 }
 //play again option
 
@@ -46,14 +51,21 @@ function playAgain() {
     return false;
 }
 //game logic
-while (true) {
+let playWins = 0;
+let computerWins = 0;
+let draw = 0;
+for(let i = 1; i <= 5; i++) {
+    
     let a = playerOption();
     let b = computerOption();
-    whoWins(a, b);
-    console.log(b);
-    if (playAgain()) {
-    continue;
+    if (whoWins(a,b) == 'player') {
+        playWins += 1;
+        
+    } else if (whoWins(a,b) == 'computer') {
+        computerWins += 1;
+        
     } else {
-    break;
+        draw += 1;
     }
+    console.log(`The score is: Player ${playWins}, Computer ${computerWins}, Draws ${draw}`);
 }
