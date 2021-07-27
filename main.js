@@ -1,3 +1,4 @@
+
 const options = ["rock", "paper", "scissors"];
 const body = document.body;
 
@@ -5,7 +6,6 @@ const body = document.body;
 
 function computerOption() {
     let ranInt = Math.floor(Math.random() * 3);
-    console.log(options[ranInt]);
     return options[ranInt];
 }
 //player Choose answer
@@ -25,7 +25,13 @@ function whoWins(a, b) {
     if (a == b) {
         console.log("It's draw.");
         return 'draw'
-        } else if ((a == "rock" && b == "scissors") || (a == "paper" && b == "rock") || (a == "scissors" && b == "paper")) {
+        } else if (a == "rock" && b == "scissors") {
+        console.log("Player wins!");
+        return 'player';
+        } else if (a == "paper" && b == "rock") {
+        console.log("Player wins!");
+        return 'player';
+        } else if (a == "scissors" && b == "paper") {
         console.log("Player wins!");
         return 'player';
         } else {
