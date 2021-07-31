@@ -1,86 +1,75 @@
-
-const options = ["rock", "paper", "scissors"];
-const body = document.body;
-
-//computer chooses answer
-
 function computerOption() {
+    const options = ["rock", "paper", "scissors"];
     let ranInt = Math.floor(Math.random() * 3);
     return options[ranInt];
-}
-//player Choose answer
+};
+// function cleanInsults() {
+//     const insults = document.querySelector('.fancy');
+//     const button = document.querySelector('.restart');
+//     button.addEventListener('click', function() {
+//         if (!insults) return;
+//         insults.remove();
+//     })
+//}
 
-function playerOption() {
-    let player;
-    while (!options.includes(player)) {
-    player = (prompt("Choose your option?/paper,rock/scissors/ ")).toLowerCase();
-    }
-    return player;
-}
-
-//Winner check
-
-function whoWins(a, b) {
-    
-    if (a == b) {
-        console.log("It's draw.");
-        return 'draw'
-        } else if (a == "rock" && b == "scissors") {
-        console.log("Player wins!");
-        return 'player';
-        } else if (a == "paper" && b == "rock") {
-        console.log("Player wins!");
-        return 'player';
-        } else if (a == "scissors" && b == "paper") {
-        console.log("Player wins!");
-        return 'player';
-        } else {
-        console.log("Computer wins!");
-        return 'computer';
-        }
-}
-//play again option
-
-function playAgain() {
-    let answer = prompt("Restart? y/n ");
-    if (answer.startsWith("y")) {
-    return true;
-    } else if (answer.startsWith('n')) {
-    body.append("You pussy bro!");
-    return false;
-    } 
-}
-//game 
-function theGame() {
-    console.log("\nHi bitches!");
-    console.log("Welcome to the game!\n");
-    let playWins = 0;
-    let computerWins = 0;
-    let draw = 0;
-    for(let i = 1; i <= 5; i++) {
-        
-        let a = playerOption();
+function playGame(){
+    let a = 'default';
+    const body = document.querySelector('.content');
+    const btns = Array.from(document.querySelectorAll('.btn'));
+    btns.forEach(btn=> btn.addEventListener('click', function(e) {
+        a = e.target.innerText.toLowerCase();
         let b = computerOption();
-        if (whoWins(a,b) == 'player') {
-            playWins += 1;
-            
-        } else if (whoWins(a,b) == 'computer') {
-            computerWins += 1;
-            
-        } else {
-            draw += 1;
-        }
-        console.log(`The score is: Player ${playWins}, Computer ${computerWins}, Draws ${draw}`);
- }
-}
-//game logic
-while (true) {
-    
-    theGame();
-    if (playAgain()) {
-        continue;
         
-    } else {
-        break;
-    }
+        if (a === b) {
+            if(confirm("It's a draw! Play again?")) {
+                
+            } else {
+                const newEle = document.createElement('h2');
+                newEle.classList.add('fancy');
+                newEle.textContent = "You are a bitch!"
+                body.appendChild(newEle);
+            }
+        } else if (a==='paper' && b==='rock') {
+            if(confirm("YOU WON! Play again?")) {
+                
+            } else {
+                const newEle = document.createElement('h2');
+                newEle.classList.add('fancy');
+                newEle.textContent = "You are a bitch!"
+                body.appendChild(newEle);
+            }
+        } else if (a === 'scissors' && b === 'paper') {
+            if(confirm("YOU WON! Play again?")) {
+
+                
+            } else {
+                const newEle = document.createElement('h2');
+                newEle.classList.add('fancy');
+                newEle.textContent = "You are a bitch!"
+                body.appendChild(newEle);
+            }
+        } else if (a === 'rock' && b === 'scissors') {
+            if(confirm("YOU WON! Play again?")) {
+                
+            } else {
+                const newEle = document.createElement('h2');
+                newEle.classList.add('fancy');
+                newEle.textContent = "You are a bitch!"  
+                body.appendChild(newEle);
+            }
+        } else {
+            if (confirm(`PC WON! ${b} beats ${a}! Play again?`)) {
+                const vanish = document.querySelector('.fancy')
+                if (!vanish) return;
+                vanish.remove();
+                
+            } else {
+                const newEle = document.createElement('h2');
+                newEle.classList.add('fancy');
+                newEle.textContent = "You are a bitch!"
+                body.appendChild(newEle);
+            }
+        }
+    }));
+    
 }
