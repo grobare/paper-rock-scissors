@@ -46,18 +46,24 @@ button:hover {
   transform: scale(1.1);
   box-shadow: 0 0 10px #ffcc33;
 }
-[type="button"].restart {
-  width: inherit;
-  padding: 0.5rem 2rem;
-  margin: auto;
-  margin-top: 2rem;
-  opacity: 0.5;
-  cursor: pointer;
-}
-[type="button"].restart:hover {
-  opacity: 1;
-}
+
 .fancy {
   text-align: center;
   margin-top: 2rem;
+}
+.score button {
+  font-size: 1rem;
+  padding: 5px 10px;
+  flex: none;
+  transform: none;
+}
+.score {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.score h2 {
+  font-size: 25px;
+  font-weight: 200;
 }
